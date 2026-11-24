@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bnf0u3x2vqi15"]
+
+[ext_resource type="PackedScene" uid="uid://lrfk5umw78p1" path="res://player.tscn" id="1_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8rn8"]
+size = Vector2(100, 880)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_teb38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scmnw"]
+size = Vector2(100, 880)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d8nfr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8nfr"]
+size = Vector2(1920, 100)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4cu2"]
+size = Vector2(1920, 100)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_scmnw"]
+
+[node name="Main" type="Node2D" unique_id=1843505015]
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1752290619]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1668224689]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17254902, 0.57254905, 0.627451, 1)
+
+[node name="Environment" type="Node2D" parent="." unique_id=929731884]
+
+[node name="WallsStaticBody2D" type="StaticBody2D" parent="Environment" unique_id=1298258858]
+position = Vector2(960, 540)
+
+[node name="LeftWallCollisionShape2D" type="CollisionShape2D" parent="Environment/WallsStaticBody2D" unique_id=156841869]
+position = Vector2(-910, 0)
+shape = SubResource("RectangleShape2D_w8rn8")
+
+[node name="LeftWallSprite2D" type="Sprite2D" parent="Environment/WallsStaticBody2D" unique_id=1689877289]
+modulate = Color(0.21503213, 0.3355259, 0.16317806, 1)
+position = Vector2(-910, 0)
+scale = Vector2(100, 880)
+texture = SubResource("CanvasTexture_teb38")
+
+[node name="RightWallCollisionShape2D" type="CollisionShape2D" parent="Environment/WallsStaticBody2D" unique_id=154054349]
+position = Vector2(910, 0)
+shape = SubResource("RectangleShape2D_scmnw")
+
+[node name="RightWallSprite2D" type="Sprite2D" parent="Environment/WallsStaticBody2D" unique_id=1795801019]
+modulate = Color(0.21503213, 0.3355259, 0.16317806, 1)
+position = Vector2(910, 0)
+scale = Vector2(100, 880)
+texture = SubResource("CanvasTexture_d8nfr")
+
+[node name="FloorStaticBody2D" type="StaticBody2D" parent="Environment" unique_id=1808089360]
+position = Vector2(960, 1030)
+
+[node name="FloorCollisionShape2D" type="CollisionShape2D" parent="Environment/FloorStaticBody2D" unique_id=506572422]
+shape = SubResource("RectangleShape2D_d8nfr")
+
+[node name="FloorSprite2D" type="Sprite2D" parent="Environment/FloorStaticBody2D" unique_id=525118969]
+modulate = Color(0.21503213, 0.3355259, 0.16317806, 1)
+scale = Vector2(1920, 100)
+texture = SubResource("CanvasTexture_h2yge")
+
+[node name="CeilingStaticBody2D" type="StaticBody2D" parent="Environment" unique_id=792206497]
+position = Vector2(960, 50)
+
+[node name="CeilingCollisionShape2D" type="CollisionShape2D" parent="Environment/CeilingStaticBody2D" unique_id=1473038941]
+shape = SubResource("RectangleShape2D_k4cu2")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Environment/CeilingStaticBody2D" unique_id=577812910]
+modulate = Color(0.21503213, 0.3355259, 0.16317806, 1)
+scale = Vector2(1920, 100)
+texture = SubResource("CanvasTexture_scmnw")
+
+[node name="Entities" type="Node2D" parent="." unique_id=2143291517]
+
+[node name="Player" parent="Entities" unique_id=961014535 instance=ExtResource("1_ig7tw")]
+self_modulate = Color(0.9097059, 0.25773296, 0.6859336, 1)
+position = Vector2(960, 940)

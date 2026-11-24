@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://lrfk5umw78p1"]
+
+[ext_resource type="Script" uid="uid://dvlk6nopd2v2t" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+resource_local_to_scene = true
+radius = 20.0
+height = 80.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1c73d"]
+
+[node name="Player" type="CharacterBody2D" unique_id=961014535]
+script = ExtResource("1_4flbx")
+
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1211464038]
+position = Vector2(0, -40)
+shape = SubResource("CapsuleShape2D_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=106390153]
+self_modulate = Color(0.9097059, 0.25773296, 0.6859336, 1)
+position = Vector2(0, -40)
+scale = Vector2(40, 80)
+texture = SubResource("CanvasTexture_1c73d")
